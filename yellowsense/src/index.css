@@ -1,0 +1,148 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  background-attachment: fixed; /* Creates a parallax effect */
+}
+
+.job-card {
+  border: none;
+  background: rgba(255, 255, 255, 0.75); /* Semi-transparent for glass effect */
+  backdrop-filter: blur(10px) saturate(150%); /* Glassmorphism effect */
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #ff6b6b, #007bff, #00bfa6);
+  opacity: 0.2;
+  animation: rotate-bg 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate-bg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.job-card h3 {
+  color: #ff6b6b;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.job-card p {
+  color: #444;
+  line-height: 1.8;
+}
+
+.job-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px); /* Applies glassmorphism to the navigation bar */
+  padding: 20px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.bottom-nav button {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  animation: button-glow 2s infinite alternate-reverse;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes button-glow {
+  from {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+  to {
+    transform: translateY(-5px);
+    filter: brightness(1.2);
+  }
+}
+
+.bottom-nav button:hover {
+  background: linear-gradient(135deg, #e63946, #f07f68);
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.3);
+}
+
+.bottom-nav .secondary-button {
+  background: linear-gradient(135deg, #00bfa6, #007bff);
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  animation: button-glow 2s infinite alternate-reverse;
+}
+
+.bottom-nav .secondary-button:hover {
+  background: linear-gradient(135deg, #00897b, #006994);
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.3);
+}
+
+.bottom-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav a:hover {
+  color: #f8f9fa;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
